@@ -17,7 +17,7 @@ Planned Steps
 2. Version 1.5:
   * Handling of foils, special-case-rarities (time-shifted, flip, etc...)
 3. Version 2:
-  * Simple display for more interactive and intuitive use
+  * Simpler display for more interactive and intuitive use
 4. Version 2.5:
   * Write results to .doc or .pdf for more detailed proxies
 5. Version 3.0 (far future):
@@ -25,6 +25,7 @@ Planned Steps
   * Networked connection to draft with other users
 6. Version 3.5:
   * Cube Draft based on provided list of cards
+Please Note: The start of this project is being done for a class, and as a result these steps may change as I learn more of the tools I will be using
 
 Credits
 ===================
