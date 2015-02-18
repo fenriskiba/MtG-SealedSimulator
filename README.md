@@ -25,6 +25,7 @@ Planned Steps
   * Networked connection to draft with other users
 6. Version 3.5:
   * Cube Draft based on provided list of cards
+
 Please Note: The start of this project is being done for a class, and as a result these steps may change as I learn more of the tools I will be using
 
 Credits
