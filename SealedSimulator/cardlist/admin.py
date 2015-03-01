@@ -3,7 +3,7 @@ from cardlist.models import Card, Set
 
 class CardAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Card Info', {'fields': ['card_name', 'image_url']}),
+        ('Card Info', {'fields': ['card_name', 'rarity', 'image_url']}),
         (None, {'fields': ['set_abbrev']}),
     ]
     list_display = ('card_name', 'set_abbrev')
