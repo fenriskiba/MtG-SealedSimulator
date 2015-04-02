@@ -43,6 +43,12 @@ def addSetToDatabase(set_data):
     newSet.set_abbrev = set_data['code']
     newSet.release_date = datetime.fromtimestamp(mktime(time.strptime(set_data['releaseDate'], '%Y-%m-%d')))
     newSet.save()
+    
+    #Eliminate all duplicate DB Rows
+    for row in Set.objects.all():
+        if Set.objects.filter(set_name=row.set_name).count() > 1:
+            row.delete()
+    
     addCardsToDatabase(set_data)
     return
 
@@ -54,4 +60,10 @@ def addCardsToDatabase(set_data):
         newCard.image_url = "http://api.mtgdb.info/content/card_images/" + str(card['multiverseid']) + ".jpeg" 
         newCard.set_abbrev = set_data['code']
         newCard.save()
+        
+    #Eliminate all duplicate DB Rows
+    for row in Card.objects.all():
+        if Card.objects.filter(image_url=row.image_url).count() > 1:
+            row.delete()
+        
     return
