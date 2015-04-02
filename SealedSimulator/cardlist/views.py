@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from cardlist.models import Card, Set
+from datetime import datetime
+from time import mktime
 import urllib2
 import json
 import time
@@ -23,9 +25,9 @@ def print_selected_cards(request):
 def import_set(request, set_name):
     template = loader.get_template('cardlist/importset.html')
     set_data = getJsonData(set_name)
+    addSetToDatabase(set_data)
     context = RequestContext(request, {
         'set_data': set_data,
-        'set_release': time.strptime(set_data['releaseDate'], '%Y-%m-%d')
     })
     return HttpResponse(template.render(context))
 
@@ -34,3 +36,22 @@ def getJsonData(set_name):
   json_string = urllib2.urlopen('http://mtgjson.com/json/' + set_name + '.json').read()
   data = json.loads(json_string)
   return data
+  
+def addSetToDatabase(set_data):
+    newSet = Set()
+    newSet.set_name = set_data['name']
+    newSet.set_abbrev = set_data['code']
+    newSet.release_date = datetime.fromtimestamp(mktime(time.strptime(set_data['releaseDate'], '%Y-%m-%d')))
+    newSet.save()
+    addCardsToDatabase(set_data)
+    return
+
+def addCardsToDatabase(set_data):
+    for card in set_data['cards']:
+        newCard = Card()
+        newCard.card_name = card['name']
+        newCard.rarity = card['rarity']
+        newCard.image_url = "http://api.mtgdb.info/content/card_images/" + str(card['multiverseid']) + ".jpeg" 
+        newCard.set_abbrev = set_data['code']
+        newCard.save()
+    return
