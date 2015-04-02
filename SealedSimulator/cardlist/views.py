@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from cardlist.models import Card, Set
+import urllib2
+import json
+import time
 
 def pack_select(request):
     card_list = Card.objects.order_by('card_name')
@@ -18,4 +21,16 @@ def print_selected_cards(request):
     return HttpResponse("This page will contain selected cards in an easy print format")
     
 def import_set(request, set_name):
-    return HttpResponse("Importing Set: %s." % set_name)
+    template = loader.get_template('cardlist/importset.html')
+    set_data = getJsonData(set_name)
+    context = RequestContext(request, {
+        'set_data': set_data,
+        'set_release': time.strptime(set_data['releaseDate'], '%Y-%m-%d')
+    })
+    return HttpResponse(template.render(context))
+
+#Utility Function 
+def getJsonData(set_name):
+  json_string = urllib2.urlopen('http://mtgjson.com/json/' + set_name + '.json').read()
+  data = json.loads(json_string)
+  return data
