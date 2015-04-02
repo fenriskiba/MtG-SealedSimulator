@@ -65,5 +65,14 @@ def addCardsToDatabase(set_data):
     for row in Card.objects.all():
         if Card.objects.filter(image_url=row.image_url).count() > 1:
             row.delete()
-        
+        elif row.card_name == "Plains":
+            row.delete()
+        elif row.card_name == "Island":
+            row.delete()
+        elif row.card_name == "Swamp":
+            row.delete()
+        elif row.card_name == "Mountain":
+            row.delete()
+        elif row.card_name == "Forest":
+            row.delete()
     return
