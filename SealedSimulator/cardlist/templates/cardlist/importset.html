@@ -6,7 +6,7 @@
 {% for card in set_data.cards %}
     {% if 'Basic' in card.supertypes %}
     {% else %}
-    <li>{{ card.name }}, {{ card.type }}</li>
+        <li>{{ card.name }}, {{ card.rarity }}, <a href="http://api.mtgdb.info/content/card_images/{{ card.multiverseid }}.jpeg">ImageURL</a>, {{ set_data.code }}</li>
     {% endif %}
 {% endfor %}
 </ul>
