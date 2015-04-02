@@ -36,7 +36,7 @@ Credits
 * Planned for Version 1.0
   * Card Information - [MTG JSON](http://mtgjson.com/)
 * Planned for Version 2.0:
-  * Card Images - [MTG Image](http://mtgimage.com/)
+  * Card Images - api.mtgdb.info
 
 Quick apology to any programmers that wish to use this code
 ===================
