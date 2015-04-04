@@ -1,37 +1,30 @@
 <h1>Sealed Pool (3 KTK, 3 FTR)</h1><br>
-<b>Pack 1 ({{ pack1.1.set_abbrev }}):</b><br>
-<ul>
-    {% for card in pack1 %}
-    <li><a href="{{ card.image_url }}">{{ card.card_name }}</a></li>
-    {% endfor %}
-</ul>
-<b>Pack 2 ({{ pack1.1.set_abbrev }}):</b><br>
-<ul>
-    {% for card in pack2 %}
-    <li><a href="{{ card.image_url }}">{{ card.card_name }}</a></li>
-    {% endfor %}
-</ul>
-<b>Pack 3 ({{ pack1.1.set_abbrev }}):</b><br>
-<ul>
-    {% for card in pack3 %}
-    <li><a href="{{ card.image_url }}">{{ card.card_name }}</a></li>
-    {% endfor %}
-</ul>
-<b>Pack 4 ({{ pack1.1.set_abbrev }}):</b><br>
-<ul>
-    {% for card in pack4 %}
-    <li><a href="{{ card.image_url }}">{{ card.card_name }}</a></li>
-    {% endfor %}
-</ul>
-<b>Pack 5 ({{ pack1.1.set_abbrev }}):</b><br>
-<ul>
-    {% for card in pack5 %}
-    <li><a href="{{ card.image_url }}">{{ card.card_name }}</a></li>
-    {% endfor %}
-</ul>
-<b>Pack 6 ({{ pack1.1.set_abbrev }}):</b><br>
-<ul>
-    {% for card in pack6 %}
-    <li><a href="{{ card.image_url }}">{{ card.card_name }}</a></li>
-    {% endfor %}
-</ul>
+<h3>Pack 1 ({{ pack1.1.set_abbrev }}):</h3>
+{% for card in pack1 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
+<br><br>
+<h3>Pack 2 ({{ pack2.1.set_abbrev }}):</h3>
+{% for card in pack2 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
+<br><br>
+<h3>Pack 3 ({{ pack3.1.set_abbrev }}):</h3>
+{% for card in pack1 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
+<br><br>
+<h3>Pack 4 ({{ pack4.1.set_abbrev }}):</h3>
+{% for card in pack4 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
+<br><br>
+<h3>Pack 5 ({{ pack5.1.set_abbrev }}):</h3>
+{% for card in pack5 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
+<br><br>
+<h3>Pack 6 ({{ pack6.1.set_abbrev }}):</h3>
+{% for card in pack6 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
