@@ -95,7 +95,6 @@ def addCardsToDatabase(set_data):
 def generatePack(given_set_name):
     givenSet = Card.objects.filter(set_abbrev=given_set_name)
     #TODO: Make Mythics less likely to be pulled than rares
-    #TODO: Prevent 2 of the same card in a given pack
     rares = givenSet.filter(Q(rarity="Mythic Rare") | Q(rarity="Rare"))
     uncommons = givenSet.filter(rarity="Uncommon")
     commons = givenSet.filter(rarity="Common")
@@ -106,11 +105,17 @@ def generatePack(given_set_name):
     
     #Generate Uncommons
     for i in range(0,3):
-        pack.append(random.choice(uncommons))
+        newCard = random.choice(uncommons)
+        while newCard in pack:
+            newCard = random.choice(uncommons)
+        pack.append(newCard)
     
     #Generate Commons
     for i in range(0,10):
-        pack.append(random.choice(commons))
+        newCard = random.choice(commons)
+        while newCard in pack:
+            newCard = random.choice(commons)
+        pack.append(newCard)
     
     return pack
 
