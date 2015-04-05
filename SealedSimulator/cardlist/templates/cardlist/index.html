@@ -1,9 +1,30 @@
-{% if card_list %}
-    <ul>
-    {% for card in card_list %}
-        <li>{{ card.card_name }}</li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No cards are available.</p>
-{% endif %}
+<h1>Sealed Pool (3 KTK, 3 FTR)</h1><br>
+<h3>Pack 1 ({{ pack1.1.set_abbrev }}):</h3>
+{% for card in pack1 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
+<br><br>
+<h3>Pack 2 ({{ pack2.1.set_abbrev }}):</h3>
+{% for card in pack2 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
+<br><br>
+<h3>Pack 3 ({{ pack3.1.set_abbrev }}):</h3>
+{% for card in pack3 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
+<br><br>
+<h3>Pack 4 ({{ pack4.1.set_abbrev }}):</h3>
+{% for card in pack4 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
+<br><br>
+<h3>Pack 5 ({{ pack5.1.set_abbrev }}):</h3>
+{% for card in pack5 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
+<br><br>
+<h3>Pack 6 ({{ pack6.1.set_abbrev }}):</h3>
+{% for card in pack6 %}
+    <img src="{{ card.image_url }}">
+{% endfor %}
