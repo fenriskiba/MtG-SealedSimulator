@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
+from django.db.models import Q
 from cardlist.models import Card, Set
 from datetime import datetime
 from time import mktime
@@ -93,8 +94,23 @@ def addCardsToDatabase(set_data):
     
 def generatePack(given_set_name):
     givenSet = Card.objects.filter(set_abbrev=given_set_name)
+    #TODO: Make Mythics less likely to be pulled than rares
+    #TODO: Prevent 2 of the same card in a given pack
+    rares = givenSet.filter(Q(rarity="Mythic Rare") | Q(rarity="Rare"))
+    uncommons = givenSet.filter(rarity="Uncommon")
+    commons = givenSet.filter(rarity="Common")
     pack = []
-    for i in range(0,15):
-        pack.append(random.choice(givenSet))
+    
+    #Generate Rare
+    pack.append(random.choice(rares))
+    
+    #Generate Uncommons
+    for i in range(0,3):
+        pack.append(random.choice(uncommons))
+    
+    #Generate Commons
+    for i in range(0,10):
+        pack.append(random.choice(commons))
+    
     return pack
 
