@@ -33,15 +33,6 @@ def open_packs(request):
 
 def print_selected_cards(request):
     return HttpResponse("This page will contain selected cards in an easy print format")
-    
-def import_set(request, set_name):
-    template = loader.get_template('cardlist/importset.html')
-    set_data = getJsonData(set_name)
-    addSetToDatabase(set_data)
-    context = RequestContext(request, {
-        'set_data': set_data,
-    })
-    return HttpResponse(template.render(context))
 
 #Utility Functions
 
