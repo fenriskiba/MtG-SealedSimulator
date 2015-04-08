@@ -33,10 +33,13 @@ Please Note: The start of this project is being done for a class, and as a resul
 Credits
 ===================
 * Magic: The Gathering and all cards for it belong to Wizards of the Coast
-* Planned for Version 1.0
-  * Card Information - [MTG JSON](http://mtgjson.com/)
-* Planned for Version 2.0:
-  * Card Images - api.mtgdb.info
+* Card Information - [MTG JSON](http://mtgjson.com/)
+* Card Images - api.mtgdb.info
+
+Functional Dependencies
+===================
+* Python 2.7.6
+* Django 1.8
 
 Quick apology to any programmers that wish to use this code
 ===================
