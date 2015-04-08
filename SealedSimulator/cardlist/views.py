@@ -5,6 +5,7 @@ from django.db.models import Q
 from cardlist.models import Card, Set
 from datetime import datetime
 from time import mktime
+from random import randint
 import urllib2
 import json
 import time
@@ -94,14 +95,19 @@ def addCardsToDatabase(set_data):
     
 def generatePack(given_set_name):
     givenSet = Card.objects.filter(set_abbrev=given_set_name)
-    #TODO: Make Mythics less likely to be pulled than rares
-    rares = givenSet.filter(Q(rarity="Mythic Rare") | Q(rarity="Rare"))
+    mythics = givenSet.filter(rarity="Mythic Rare")
+    rares = givenSet.filter(rarity="Rare")
     uncommons = givenSet.filter(rarity="Uncommon")
     commons = givenSet.filter(rarity="Common")
     pack = []
     
+    isMythic = (randint(0, 5) == 0)
+    
     #Generate Rare
-    pack.append(random.choice(rares))
+    if(isMythic):
+        pack.append(random.choice(mythics))
+    else:
+        pack.append(random.choice(rares))
     
     #Generate Uncommons
     for i in range(0,3):
