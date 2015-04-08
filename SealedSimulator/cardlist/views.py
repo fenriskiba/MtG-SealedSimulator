@@ -35,53 +35,6 @@ def print_selected_cards(request):
     return HttpResponse("This page will contain selected cards in an easy print format")
 
 #Utility Functions
-
-def getJsonData(set_name):
-  json_string = urllib2.urlopen('http://mtgjson.com/json/' + set_name + '.json').read()
-  data = json.loads(json_string)
-  return data
-  
-def addSetToDatabase(set_data):
-    #Add new set
-    newSet = Set()
-    newSet.set_name = set_data['name']
-    newSet.set_abbrev = set_data['code']
-    newSet.release_date = datetime.fromtimestamp(mktime(time.strptime(set_data['releaseDate'], '%Y-%m-%d')))
-    newSet.save()
-    
-    #Eliminate all duplicate DB Rows
-    for row in Set.objects.all():
-        if Set.objects.filter(set_name=row.set_name).count() > 1:
-            row.delete()
-    
-    addCardsToDatabase(set_data)
-    return
-
-def addCardsToDatabase(set_data):
-    #Add new cards
-    for card in set_data['cards']:
-        newCard = Card()
-        newCard.card_name = card['name']
-        newCard.rarity = card['rarity']
-        newCard.image_url = "http://api.mtgdb.info/content/card_images/" + str(card['multiverseid']) + ".jpeg" 
-        newCard.set_abbrev = set_data['code']
-        newCard.save()
-        
-    #Eliminate all duplicate DB Rows and all Basic Lands
-    for row in Card.objects.all():
-        if Card.objects.filter(image_url=row.image_url).count() > 1:
-            row.delete()
-        elif row.card_name == "Plains":
-            row.delete()
-        elif row.card_name == "Island":
-            row.delete()
-        elif row.card_name == "Swamp":
-            row.delete()
-        elif row.card_name == "Mountain":
-            row.delete()
-        elif row.card_name == "Forest":
-            row.delete()
-    return
     
 def generatePack(given_set_name):
     givenSet = Card.objects.filter(set_abbrev=given_set_name)
