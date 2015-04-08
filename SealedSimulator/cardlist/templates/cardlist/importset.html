@@ -1,0 +1,17 @@
+<b>Set Name:</b> {{ set_data.name }}<br>
+<b>Set Abbrev:</b> {{ set_data.code }}<br>
+<b>Release Date:</b> {{ set_data.releaseDate}}</br>
+<b>Cards:</b><br>
+<ul>
+{% for card in set_data.cards %}
+    {% if 'Basic' in card.supertypes %}
+    {% else %}
+        <li>
+          {{ card.name }}, 
+          {{ card.rarity }}, 
+          <a href="http://api.mtgdb.info/content/card_images/{{ card.multiverseid }}.jpeg">ImageURL</a>, 
+          {{ set_data.code }}
+        </li>
+    {% endif %}
+{% endfor %}
+</ul>

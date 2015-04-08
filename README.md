@@ -16,6 +16,7 @@ Planned Steps
   * Full functionality for opening packs and displaying a list of the pulled cards
 2. Version 1.5:
   * Handling of foils, special-case-rarities (time-shifted, flip, etc...)
+  * Page for Printing select cards from sealed pool for proxies
 3. Version 2:
   * Simpler display for more interactive and intuitive use
 4. Version 2.5:
@@ -24,17 +25,22 @@ Planned Steps
   * Draft simulation
   * Networked connection to draft with other users
 6. Version 3.5:
-  * Cube Draft based on provided list of cards
+  * Cube Draft/Sealed based on provided list of cards
+7. Version 4.0:
+  * Tracking user draft statistics
 
 Please Note: The start of this project is being done for a class, and as a result these steps may change as I learn more of the tools I will be using
 
 Credits
 ===================
 * Magic: The Gathering and all cards for it belong to Wizards of the Coast
-* Planned for Version 1.0
-  * Card Information - [MTG JSON](http://mtgjson.com/)
-* Planned for Version 2.0:
-  * Card Images - [MTG Image](http://mtgimage.com/)
+* Card Information - [MTG JSON](http://mtgjson.com/)
+* Card Images - api.mtgdb.info
+
+Functional Dependencies
+===================
+* Python 2.7.6
+* Django 1.8
 
 Quick apology to any programmers that wish to use this code
 ===================
