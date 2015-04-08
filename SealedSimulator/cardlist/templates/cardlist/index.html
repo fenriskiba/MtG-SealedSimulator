@@ -1,30 +1,54 @@
-<h1>Sealed Pool (3 KTK, 3 FTR)</h1><br>
-<h3>Pack 1 ({{ pack1.1.set_abbrev }}):</h3>
-{% for card in pack1 %}
-    <img src="{{ card.image_url }}">
-{% endfor %}
+<h1>Welcome to the MtG: Sealed Simulator</h1>
+
+<h2>Select your packs</h2>
+
+<h3>Pack 1:</h3>
+<select>
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
+
+<h3>Pack 2:</h3>
+<select>
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
+
+<h3>Pack 3:</h3>
+<select>
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
+
+<h3>Pack 4:</h3>
+<select>
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
+
+<h3>Pack 5:</h3>
+<select>
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
+
+<h3>Pack 6:</h3>
+<select>
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
 <br><br>
-<h3>Pack 2 ({{ pack2.1.set_abbrev }}):</h3>
-{% for card in pack2 %}
-    <img src="{{ card.image_url }}">
+<b>List of All Available Sets</b>
+<ul>
+{% for set in sets %}
+  <li>{{set.set_name}}, {{set.set_abbrev}}</li>
 {% endfor %}
-<br><br>
-<h3>Pack 3 ({{ pack3.1.set_abbrev }}):</h3>
-{% for card in pack3 %}
-    <img src="{{ card.image_url }}">
-{% endfor %}
-<br><br>
-<h3>Pack 4 ({{ pack4.1.set_abbrev }}):</h3>
-{% for card in pack4 %}
-    <img src="{{ card.image_url }}">
-{% endfor %}
-<br><br>
-<h3>Pack 5 ({{ pack5.1.set_abbrev }}):</h3>
-{% for card in pack5 %}
-    <img src="{{ card.image_url }}">
-{% endfor %}
-<br><br>
-<h3>Pack 6 ({{ pack6.1.set_abbrev }}):</h3>
-{% for card in pack6 %}
-    <img src="{{ card.image_url }}">
-{% endfor %}
+</ul>
+
+Magic the Gathering and all cards for it belong to Wizards of the Coast
