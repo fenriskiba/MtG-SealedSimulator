@@ -16,6 +16,7 @@ Planned Steps
   * Full functionality for opening packs and displaying a list of the pulled cards
 2. Version 1.5:
   * Handling of foils, special-case-rarities (time-shifted, flip, etc...)
+  * Page for Printing select cards from sealed pool for proxies
 3. Version 2:
   * Simpler display for more interactive and intuitive use
 4. Version 2.5:
