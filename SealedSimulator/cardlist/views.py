@@ -12,13 +12,21 @@ import time
 import random
 
 def pack_select(request):
-    pack1 = generatePack("KTK")
-    pack2 = generatePack("KTK")
-    pack3 = generatePack("KTK")
-    pack4 = generatePack("FRF")
-    pack5 = generatePack("FRF")
-    pack6 = generatePack("FRF")
+    sets = Set.objects.all().order_by('-release_date')
     template = loader.get_template('cardlist/index.html')
+    context = RequestContext(request, {
+        'sets': sets,
+    })
+    return HttpResponse(template.render(context))
+
+def open_packs(request):
+    pack1 = generatePack(request.POST.get("pack1"))
+    pack2 = generatePack(request.POST.get("pack2"))
+    pack3 = generatePack(request.POST.get("pack3"))
+    pack4 = generatePack(request.POST.get("pack4"))
+    pack5 = generatePack(request.POST.get("pack5"))
+    pack6 = generatePack(request.POST.get("pack6"))
+    template = loader.get_template('cardlist/openpacks.html')
     context = RequestContext(request, {
         'pack1': pack1,
         'pack2': pack2,
@@ -28,9 +36,6 @@ def pack_select(request):
         'pack6': pack6,
     })
     return HttpResponse(template.render(context))
-
-def open_packs(request):
-    return HttpResponse("This page will contain the cards from your open packs")
 
 def print_selected_cards(request):
     return HttpResponse("This page will contain selected cards in an easy print format")

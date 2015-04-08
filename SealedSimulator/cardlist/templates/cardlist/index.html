@@ -1,30 +1,59 @@
-<h1>Sealed Pool (3 KTK, 3 FTR)</h1><br>
-<h3>Pack 1 ({{ pack1.1.set_abbrev }}):</h3>
-{% for card in pack1 %}
-    <img src="{{ card.image_url }}">
-{% endfor %}
+<h1>Welcome to the MtG: Sealed Simulator</h1>
+
+<h2>Select your packs</h2>
+
+<form action="openpacks/" method="POST">
+<b><u>Pack 1:</u></b><br>
+<select name="pack1" >
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
+<br>
+<b><u>Pack 2:</u></b><br>
+<select name="pack2" >
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
+<br>
+<b><u>Pack 3:</u></b><br>
+<select name="pack3">
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
+<br>
+<b><u>Pack 4:</u></b><br>
+<select name="pack4">
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
+<br>
+<b><u>Pack 5:</u></b><br>
+<select name="pack5">
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
+<br>
+<b><u>Pack 6:</u></b><br>
+<select name="pack6">
+  {% for set in sets %}
+    <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
+  {% endfor %}
+</select>
 <br><br>
-<h3>Pack 2 ({{ pack2.1.set_abbrev }}):</h3>
-{% for card in pack2 %}
-    <img src="{{ card.image_url }}">
+<input type="submit" value="Submit">
+{% csrf_token %}
+</form>
+
+<b>List of All Available Sets</b>
+<ul>
+{% for set in sets %}
+  <li>{{set.set_name}}, {{set.set_abbrev}}</li>
 {% endfor %}
-<br><br>
-<h3>Pack 3 ({{ pack3.1.set_abbrev }}):</h3>
-{% for card in pack3 %}
-    <img src="{{ card.image_url }}">
-{% endfor %}
-<br><br>
-<h3>Pack 4 ({{ pack4.1.set_abbrev }}):</h3>
-{% for card in pack4 %}
-    <img src="{{ card.image_url }}">
-{% endfor %}
-<br><br>
-<h3>Pack 5 ({{ pack5.1.set_abbrev }}):</h3>
-{% for card in pack5 %}
-    <img src="{{ card.image_url }}">
-{% endfor %}
-<br><br>
-<h3>Pack 6 ({{ pack6.1.set_abbrev }}):</h3>
-{% for card in pack6 %}
-    <img src="{{ card.image_url }}">
-{% endfor %}
+</ul>
+
+Magic the Gathering and all cards for it belong to Wizards of the Coast
