@@ -2,48 +2,53 @@
 
 <h2>Select your packs</h2>
 
-<h3>Pack 1:</h3>
-<select>
+<form action="openpacks/" method="POST">
+<b><u>Pack 1:</u></b><br>
+<select name="pack1" >
   {% for set in sets %}
     <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
   {% endfor %}
 </select>
-
-<h3>Pack 2:</h3>
-<select>
+<br>
+<b><u>Pack 2:</u></b><br>
+<select name="pack2" >
   {% for set in sets %}
     <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
   {% endfor %}
 </select>
-
-<h3>Pack 3:</h3>
-<select>
+<br>
+<b><u>Pack 3:</u></b><br>
+<select name="pack3">
   {% for set in sets %}
     <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
   {% endfor %}
 </select>
-
-<h3>Pack 4:</h3>
-<select>
+<br>
+<b><u>Pack 4:</u></b><br>
+<select name="pack4">
   {% for set in sets %}
     <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
   {% endfor %}
 </select>
-
-<h3>Pack 5:</h3>
-<select>
+<br>
+<b><u>Pack 5:</u></b><br>
+<select name="pack5">
   {% for set in sets %}
     <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
   {% endfor %}
 </select>
-
-<h3>Pack 6:</h3>
-<select>
+<br>
+<b><u>Pack 6:</u></b><br>
+<select name="pack6">
   {% for set in sets %}
     <option value="{{set.set_abbrev}}">{{set.set_name}}</option>
   {% endfor %}
 </select>
 <br><br>
+<input type="submit" value="Submit">
+{% csrf_token %}
+</form>
+
 <b>List of All Available Sets</b>
 <ul>
 {% for set in sets %}

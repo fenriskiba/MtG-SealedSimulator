@@ -20,12 +20,12 @@ def pack_select(request):
     return HttpResponse(template.render(context))
 
 def open_packs(request):
-    pack1 = generatePack("KTK")
-    pack2 = generatePack("KTK")
-    pack3 = generatePack("KTK")
-    pack4 = generatePack("FRF")
-    pack5 = generatePack("FRF")
-    pack6 = generatePack("FRF")
+    pack1 = generatePack(request.POST.get("pack1"))
+    pack2 = generatePack(request.POST.get("pack2"))
+    pack3 = generatePack(request.POST.get("pack3"))
+    pack4 = generatePack(request.POST.get("pack4"))
+    pack5 = generatePack(request.POST.get("pack5"))
+    pack6 = generatePack(request.POST.get("pack6"))
     template = loader.get_template('cardlist/openpacks.html')
     context = RequestContext(request, {
         'pack1': pack1,
