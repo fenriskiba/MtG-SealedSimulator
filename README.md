@@ -1,3 +1,8 @@
+THIS PROJECT HAS BEEN INDEFINITELY SUSPENDED
+===================
+Due to personal time constraints and financial limitations this project will be shelved indefinitely.
+You are welcome to use my starting code to continue to work on this project and post it yourself.
+
 Magic: The Gathering - Sealed Simulator
 ===================
 A program to simulate opening six packs of Magic: The Gathering for purposes of practicing building a sealed deck.
