@@ -46,7 +46,3 @@ Functional Dependencies
 ===================
 * Python 2.7.6
 * Django 1.8
-
-Quick apology to any programmers that wish to use this code
-===================
-I'm very bad about commenting, and will try to make sure a fair amount is commented. Sorry for any lack of documentation.
